@@ -29,7 +29,7 @@ class CategorySpider(scrapy.Spider):
                 for subcat in cat.xpath('.//ul//li'):
                     item['code'] = subcat.xpath('substring-after(./a/@href,"cate_code=")').extract()
                     item['Third'] = subcat.xpath('./a/text()').extract()
-                    conn = psycopg2.connect("dbname='dokhudokhu' user='ruci' host='localhost' password='13579'")
+                    conn = psycopg2.connect(settings.DBSETTINGS())
 
                     cur = conn.cursor()
 
