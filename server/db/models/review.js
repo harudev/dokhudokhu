@@ -4,14 +4,13 @@ module.exports = function(sequelize, DataTypes) {
     title:DataTypes.STRING,
     abstracts:DataTypes.TEXT,
     review:DataTypes.TEXT,
-    facebook:{
-      type:DataTypes.STRING,
-      default:null
-    }
+    facebook:DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
+        review.belongsTo(models.user);
         review.belongsTo(models.book);
+        review.hasMany(models.reviewSocial);
       }
     }
   });
