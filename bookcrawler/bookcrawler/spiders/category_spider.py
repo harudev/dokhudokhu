@@ -30,8 +30,12 @@ class CategorySpider(scrapy.Spider):
                     item['Third'] = subcat.xpath('./a/text()').extract()
                     conn = psycopg2.connect(settings.DBSETTINGS())
 
-                    cur = conn.cursor()
-                    cur.execute("""INSERT INTO categories ("code", "first", "second", "third","bookCount","createdAt","updatedAt")
-                                    VALUES ('%s', '%s', '%s', '%s', 0, now(), now());"""%
-                                    (item['code'][0],item['First'][0],item['Second'][0],item['Third'][0]))
-                    conn.commit()
+                    try:
+                        cur = conn.cursor()
+                        cur.execute("""INSERT INTO categories ("id", "first", "second", "third","bookCount","createdAt","updatedAt")
+                                        VALUES ('%s', '%s', '%s', '%s', 0, now(), now());"""%
+                                        (item['code'][0],item['First'][0],item['Second'][0],item['Third'][0]))
+                        conn.commit()
+                    except Exception as e:
+                        print unicode(item['Third'][0])
+                        print e

@@ -21,6 +21,7 @@ class BookItem(scrapy.Item):
 	Publisher = scrapy.Field()
 	Primere = scrapy.Field()
 	Cover = scrapy.Field()
+	Link = scrapy.Field()
 
 class BookCategoryItem(scrapy.Item):
 	Category = scrapy.Field()
