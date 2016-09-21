@@ -3,11 +3,9 @@ module.exports = function(sequelize, DataTypes) {
   var book = sequelize.define('book', {
     isbn:DataTypes.STRING,
     title:DataTypes.STRING,
-    subTitle:DataTypes.STRING,
     author:DataTypes.STRING,
     publisher:DataTypes.STRING,
     primere:DataTypes.DATE,
-    summary:DataTypes.TEXT,
     cover:DataTypes.STRING,
     link:DataTypes.STRING
   }, {
