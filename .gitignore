@@ -1,2 +1,3 @@
 *.pyc
 rest-server/node_modules/
+server/node_modules/

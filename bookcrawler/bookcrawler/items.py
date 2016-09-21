@@ -13,15 +13,13 @@ class CategoryItem(scrapy.Item):
 	Second = scrapy.Field()
 	Third = scrapy.Field()
 
-class BookscrapItem(scrapy.Item):
+class BookItem(scrapy.Item):
 	bid = scrapy.Field()
 	ISBN = scrapy.Field()
 	Title = scrapy.Field()
-	SubTitle = scrapy.Field()
 	Author = scrapy.Field()
-	Publish = scrapy.Field()
-	Date = scrapy.Field()
-	Description = scrapy.Field()
+	Publisher = scrapy.Field()
+	Primere = scrapy.Field()
 	Cover = scrapy.Field()
 
 class BookCategoryItem(scrapy.Item):

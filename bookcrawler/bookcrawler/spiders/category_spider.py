@@ -3,8 +3,8 @@ import psycopg2
 from bookcrawler.items import CategoryItem
 import settings
 
-class BookSpider(scrapy.Spider):
-    name = "book"
+class CategorySpider(scrapy.Spider):
+    name = "category"
     allowed_domains = ["naver.com"]
     start_urls = [
         "http://book.naver.com/",
@@ -13,7 +13,6 @@ class BookSpider(scrapy.Spider):
     def parse(self, response):
         try:
             root = response.xpath('//div[@id="left_category"]')
-    #        print repr(root.extract()).decode("unicode-escape")
             for code in root.xpath('.//ul//li/a/@cate').extract():
                 url = "http://book.naver.com/category/index.nhn?cate_code=" + code
                 yield scrapy.Request(url,callback=self.parse2)
