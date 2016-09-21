@@ -1,15 +1,15 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var book = sequelize.define('book', {
-    isbn:Datatypes.STRING,
-    title:Datatypes.STRING,
-    subTitle:Datatypes.STRING,
-    author:Datatypes.STRING,
-    publisher:Datatypes.STRING,
-    primere:Datatypes.DATE,
-    summary:Datatypes.TEXT,
-    cover:Datatypes.STRING,
-    link:Datatypes.STRING
+    isbn:DataTypes.STRING,
+    title:DataTypes.STRING,
+    subTitle:DataTypes.STRING,
+    author:DataTypes.STRING,
+    publisher:DataTypes.STRING,
+    primere:DataTypes.DATE,
+    summary:DataTypes.TEXT,
+    cover:DataTypes.STRING,
+    link:DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {

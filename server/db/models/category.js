@@ -1,11 +1,11 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var category = sequelize.define('category', {
-    code:Datatypes.STRING,
-    first:Datatypes.STRING,
-    second:Datatypes.STRING,
-    third:Datatypes.STRING,
-    bookCount:Datatypes.INTEGER,
+    code:DataTypes.STRING,
+    first:DataTypes.STRING,
+    second:DataTypes.STRING,
+    third:DataTypes.STRING,
+    bookCount:DataTypes.INTEGER,
   }, {
     classMethods: {
       associate: function(models) {
