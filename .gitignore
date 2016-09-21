@@ -1,2 +1,3 @@
-rest-server/node_modules/
+*.pyc
 server/node_modules/
+bookcrawler/bookcrawler/spiders/settings-example.py
