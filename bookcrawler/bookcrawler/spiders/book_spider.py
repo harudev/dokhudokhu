@@ -24,8 +24,8 @@ class BookSpider(scrapy.Spider):
 
         # row = rows[0]
         for row in rows:
-            for i in range(0,10):
-                yield scrapy.Request(url="https://openapi.naver.com/v1/search/book_adv.xml?d_cont=1&start="+str(i*100+1)+"&display=2&d_catg="+str(row[0]),
+            for i in range(1,1001):
+                yield scrapy.Request(url="https://openapi.naver.com/v1/search/book_adv.xml?d_cont=1&start="+str(i)+"&display=100&d_catg="+str(row[0]),
                     headers={'X-Naver-Client-Id':self.client_id,'X-Naver-Client-Secret':self.client_secret,
                         'Accept':'*/*', 'Content-Type': 'application/xml'},
                         callback=self.parseXML)
@@ -40,7 +40,7 @@ class BookSpider(scrapy.Spider):
             burl = urllib.urlopen(unicode(item.find("link").text)).geturl()
             bid = re.search('(?<=bid=)\d+',burl).group(0)
             bitem['bid'] = bid
-            bitem['Title'] = item.find("title").text
+            bitem['Title'] = item.find("title").text.replace('<b>','').replace('</b>','').replace("'","''")
             bitem['ISBN'] = item.find("isbn").text
             bitem['Author'] = item.find("author").text
             bitem['Publisher'] = item.find("publisher").text
